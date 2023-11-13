@@ -151,11 +151,13 @@ function App() {
     }
   }, [mode])
   return (
-    <>
-      {mode} <TimerDisplay countdownMs={countdownMs} /><br/>
+    <div className={`container mode-${mode}`}>
+      <div className="app">
+      {mode}<br/><TimerDisplay countdownMs={countdownMs} /><br/>
       <audio src={wallClockTickingUrl} loop ref={tickRef} />
       <PlayStateButton playing={playState} onToggle={(state) => setPlayState(state)} />
-    </>
+      </div>
+    </div>
   )
 }
 
