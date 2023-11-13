@@ -16,3 +16,10 @@
 .mode-short_break {
   background-color: #b3cde4;
 }
+
+.brand {
+  display: block;
+  margin-top:3em;
+  font-size: 0.5em;
+  opacity: 0.3;
+}

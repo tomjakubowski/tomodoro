@@ -58,6 +58,12 @@ function TimerDisplay(props: { countdownMs: number }) {
     </>
   );
 }
+
+function Brand() {
+  return (
+    <span className="brand">TOMODORO by TOM LUXURY</span>
+  )
+}
 function App() {
   const STARTING_MODE = "focus";
   const [mode, setMode] = useState<Mode>(STARTING_MODE)
@@ -153,9 +159,10 @@ function App() {
   return (
     <div className={`container mode-${mode}`}>
       <div className="app">
-      {mode}<br/><TimerDisplay countdownMs={countdownMs} /><br/>
-      <audio src={wallClockTickingUrl} loop ref={tickRef} />
-      <PlayStateButton playing={playState} onToggle={(state) => setPlayState(state)} />
+        {mode}<br/><TimerDisplay countdownMs={countdownMs} /><br/>
+        <audio src={wallClockTickingUrl} loop ref={tickRef} />
+        <PlayStateButton playing={playState} onToggle={(state) => setPlayState(state)} /><br/>
+        <Brand />
       </div>
     </div>
   )
