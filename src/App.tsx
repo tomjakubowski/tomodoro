@@ -6,14 +6,16 @@ import magicMalletUrl from './assets/magic-mallet-6262.mp3'
 type Mode = "focus" | "short_break";
 type PlayState = "playing" | "paused";
 
+const devMode = document.location.search.includes('dev');
+
 function minutes(n: number) {
   return 60.0* 1000 * n;
 }
 function seconds(n: number) {
   return 1000 * n;
 }
-const focusTime = minutes(25) + seconds(0);
-const shortBreakTime = minutes(5) + seconds(0);
+const focusTime = !devMode ? minutes(25) + seconds(0) : minutes(0) + seconds(5);
+const shortBreakTime = !devMode ? minutes(5) + seconds(0) : minutes(0) + seconds(4);
 
 function modeNext(state: Mode) {
   if (state === 'focus') {
@@ -103,16 +105,20 @@ function App() {
     }
   }, [playState]);
 
+  // disable audio in dev mode
   function pause(a: HTMLAudioElement) {
+    if (devMode) return;
     if (!a.paused)
       a.pause();
   }
   function replay(a: HTMLAudioElement) {
+    if (devMode) return;
     a.currentTime = (0.0);
     a.play();
   }
 
   function playOneshot(url: string) {
+    if (devMode) return;
     new Audio(url).play();
   }
 
