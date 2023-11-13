@@ -3,6 +3,12 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  color: white;
+}
+
+button {
+  background-color: rgb(158, 158, 255);
 }
 
 .container {
@@ -19,7 +25,7 @@
 
 .brand {
   display: block;
-  margin-top:3em;
+  margin-top: 3em;
   font-size: 0.5em;
   opacity: 0.3;
 }
